@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MomentMixer - Host</title>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📸 MomentMixer</h1>
+            <p>Create a shared moment with multiple cameras</p>
+        </header>
+
+        <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+            🌙
+        </button>
+
+        <main>
+            <div id="setup-section" class="section">
+                <button id="create-session" class="primary-button">Start New Session</button>
+            </div>
+
+            <div id="session-section" class="section hidden">
+                <div class="qr-container">
+                    <div id="qrcode"></div>
+                    <p>Scan to join this session</p>
+                </div>
+                <div class="session-info">
+                    <p>Session ID: <span id="session-id"></span></p>
+                    <p>Connected devices: <span id="peer-count">0</span></p>
+                </div>
+            </div>
+
+            <div id="canvas-container" class="section hidden">
+                <canvas id="main-canvas"></canvas>
+                <div class="controls">
+                    <button id="capture-btn" class="secondary-button">Capture</button>
+                    <button id="record-btn" class="secondary-button">Record</button>
+                    <select id="layout-select">
+                        <option value="grid">Grid</option>
+                        <option value="mosaic">Mosaic</option>
+                        <option value="dynamic">Dynamic</option>
+                        <option value="focus">Focus Mode</option>
+                    </select>
+                    <button id="fullscreen-btn" class="secondary-button">Fullscreen</button>
+                </div>
+                <div class="filter-controls">
+                    <button class="filter-button" data-filter="none">Normal</button>
+                    <button class="filter-button" data-filter="grayscale">Grayscale</button>
+                    <button class="filter-button" data-filter="sepia">Sepia</button>
+                    <button class="filter-button" data-filter="invert">Invert</button>
+                    <button class="filter-button" data-filter="blur">Blur</button>
+                    <button class="filter-button" data-filter="vintage">Vintage</button>
+                </div>
+                <div class="controls">
+                    <button id="mute-all-btn" class="secondary-button">Mute All</button>
+                    <button id="unmute-all-btn" class="secondary-button">Unmute All</button>
+                    <button id="share-btn" class="secondary-button">Share Session</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/host.js"></script>
+</body>
+</html> 

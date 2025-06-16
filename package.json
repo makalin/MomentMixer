@@ -1,0 +1,35 @@
+{
+  "name": "momentmixer",
+  "version": "1.0.0",
+  "description": "A lightweight web app that blends real-time camera inputs from multiple nearby mobile devices",
+  "main": "src/server/index.js",
+  "scripts": {
+    "start": "node src/server/index.js",
+    "dev": "nodemon src/server/index.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "webrtc",
+    "camera",
+    "collage",
+    "real-time",
+    "video"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2",
+    "qrcode": "^1.5.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MomentMixer - Join Session</title>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📸 MomentMixer</h1>
+            <p>Join the shared moment</p>
+        </header>
+
+        <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+            🌙
+        </button>
+
+        <main>
+            <div id="setup-section" class="section">
+                <div class="camera-preview">
+                    <video id="local-video" autoplay playsinline muted></video>
+                </div>
+                <div class="controls">
+                    <button id="start-camera" class="primary-button">Start Camera</button>
+                    <button id="join-session" class="primary-button" disabled>Join Session</button>
+                </div>
+                <div class="filter-controls">
+                    <button class="filter-button" data-filter="none">Normal</button>
+                    <button class="filter-button" data-filter="grayscale">Grayscale</button>
+                    <button class="filter-button" data-filter="sepia">Sepia</button>
+                    <button class="filter-button" data-filter="invert">Invert</button>
+                    <button class="filter-button" data-filter="blur">Blur</button>
+                    <button class="filter-button" data-filter="vintage">Vintage</button>
+                </div>
+            </div>
+
+            <div id="status-section" class="section hidden">
+                <p>Connected to session: <span id="session-id"></span></p>
+                <p>Status: <span id="connection-status">Connecting...</span></p>
+                <div class="controls">
+                    <button id="mute-btn" class="secondary-button">Mute</button>
+                    <button id="switch-camera-btn" class="secondary-button">Switch Camera</button>
+                    <button id="leave-btn" class="secondary-button">Leave Session</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/join.js"></script>
+</body>
+</html> 
